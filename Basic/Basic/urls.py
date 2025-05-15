@@ -20,9 +20,12 @@ from Basic import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about-us/',views.aboutUS, name='aboutUS'), #this is the URL pattern for the about us page
-    path('home/',views.home, name='home'), #this is the URL pattern for the home page
-    path('contact/',views.contact, name='contact'), #this is the URL pattern for the contact page
+    path('', views.homepage, name='homepage'),#direct open the homepage
+    path('about-us/',views.aboutUS, name='aboutUS'), 
+    path('home/',views.home, name='home'), 
+    path('contact/',views.contact, name='contact'),
+    path('course/', views.course, name='course'), 
+    path('course/<slug:course_id>/', views.coursedetail) 
 ]
 #about -us is a link and views.aboutUS is the function that will be called when the user visits that link
 #this is the URL pattern for the about us page
