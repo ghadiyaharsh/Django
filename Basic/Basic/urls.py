@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Basic import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about-us/',views.aboutUS, name='aboutUS'), #this is the URL pattern for the about us page
+    path('home/',views.home, name='home'), #this is the URL pattern for the home page
+    path('contact/',views.contact, name='contact'), #this is the URL pattern for the contact page
 ]
+#about -us is a link and views.aboutUS is the function that will be called when the user visits that link
+#this is the URL pattern for the about us page
