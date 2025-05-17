@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        {{title}}
+    </title>
     <style>
         body {
-            background-color: #f0f0f0;
+            background-color: #f8f4f4;
             font-family: Arial, sans-serif;
             color: #333;
             margin: 0;
@@ -28,5 +30,28 @@
         <p>This is a simple HTML template.</p>
         <p>Feel free to modify it as you like!</p>
     </div>    
+
+    {% for item in course_name %}
+            <h2>{{forloop.counter}}{{item}}</h2>
+
+            <!--[1] forloop.last
+            [2] forloop.reversecounter
+            [3] froloop. -->
+    {% endfor %}
+
+    <table ="2" ellpadding="5" cellspacing="0" style="background-color: antiquewhite;">
+        <tr>
+            <td style="background-color: cornflowerblue;">course_name</td>
+            <td style="background-color: cornflowerblue;">course_duration</td>
+        </tr>
+
+    {% for item in course_duration %}
+    <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.duration}}</td>
+    </tr>
+        
+    {% endfor %}       
+    </table>
 </body>
-</html>
+</html>                             
