@@ -25,7 +25,10 @@ urlpatterns = [
     path('home/',views.home, name='home'), 
     path('contact/',views.contact, name='contact'),
     path('course/', views.course, name='course'), 
-    path('course/<slug:course_id>/', views.coursedetail) 
+    path('course/<slug:course_id>/', views.coursedetail),
+    path('skill/',views.skills, name='skills'),
+    path('student/',views.student,name='student'),
+    path('',views.ragistrationform,name='ragistrationform'),
 ]
 #about -us is a link and views.aboutUS is the function that will be called when the user visits that link
 #this is the URL pattern for the about us page
