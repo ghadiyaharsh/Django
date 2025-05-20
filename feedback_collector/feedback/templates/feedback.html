@@ -1,10 +1,77 @@
+
 <!DOCTYPE html>
 <html>
-<head><title>Feedback</title></head>
+<head><title>Feedback</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h2 {
+    color: #222;
+    margin-top: 40px;
+  }
+
+  form {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 300px;
+  }
+
+  input, textarea {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 1em;
+    resize: vertical;
+    padding: 8px;
+    margin: 0;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  
+  button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background: #388e3c;
+  }
+
+</style>
+  
+</head>
 <body>
   <h2>Feedback Form</h2>
-  <form method="POST">
-    
+  <form method="POST">  <!--the post  method is used for sending data from the client to the server it is used to send data to the server-->
+    {% csrf_token %}
+
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Your Email" required><br><br>
+    <textarea name="message" placeholder="Your Feedback" required></textarea><br><br>
+    <button type="submit">Submit</button>
   </form>
+</body>
+</html>
+
 </body>
 </html>

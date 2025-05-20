@@ -9,5 +9,10 @@ def feedback_form(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
         
-    Feedback.objects.create(name=name, email=email, feedback=message)
-    return render(request, 'feedback/thank_you.html')       
+        Feedback.objects.create(name=name, email=email, message=message)
+    return render(request, 'feedback.html')  
+    return render(request, 'thanks.html')     
+    
+
+def thanks(request):
+    return render(request, 'thanks.html')
