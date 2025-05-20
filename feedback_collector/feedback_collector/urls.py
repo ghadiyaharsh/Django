@@ -22,4 +22,5 @@ from feedback import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.feedback_form, name='feedback'),
+    path('thanks/', views.thanks, name='thanks'),
 ]
