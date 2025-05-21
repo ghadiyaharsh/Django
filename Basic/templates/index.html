@@ -6,22 +6,8 @@
     <title>
         {{title}}
     </title>
-    <style>
-        body {
-            background-color: #f8f4f4;
-            font-family: Arial, sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 16px;
-        }
-   
-    </style>
+    <link rel="stylesheet" href="{% static 'index.css/' %}">
+    
 </head>
 <body>
     hi how are you 
@@ -51,7 +37,25 @@
         <td>{{item.duration}}</td>
     </tr>
         
-    {% endfor %}       
-    </table>
+    {% endfor %}    
+        </table>
+
+    
+<!-- if else blocks -->
+
+{% if number|length > 0 %}
+
+    {% for num in number%}
+    {% if num > 20 %}
+
+     <div class="numbers">
+        {{num}} 
+    </div>
+    
+    {% endif %}
+    {% endfor %}
+{% else %}
+    <p>No numbers available.</p>
+{% endif %}
 </body>
 </html>                             

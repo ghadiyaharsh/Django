@@ -5,12 +5,15 @@ def homepage(request):
     data = {
         'title': 'Home Page',
         'course_name': ['Python', 'Java', 'C++', 'JavaScript'],
+        'number':[10, 20, 30, 40],
+        #'number': [1, 2, 3, 4],
         'course_duration': [
             {'name': 'Python', 'duration': '3 months'},
             {'name': 'Java', 'duration': '4 months'},
             {'name': 'C++', 'duration': '5 months'},
             {'name': 'JavaScript', 'duration': '6 months'},
         ]
+         
     }
     return render(request, "index.html", data)
 
