@@ -1,9 +1,20 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm  # Import LoginForm from your forms.py
+from .forms import LoginForm, CustomUserForm  # Import LoginForm and CustomUserForm from your forms.py
 
 # Create your views here.
+
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST)
+        if form.is_valid():
+            form.save()  # saves user and automatically hashes password1
+            return redirect('login')  # or your desired success URL
+    else:
+        form = CustomUserForm()
+    return render(request, 'accounts/register.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -30,5 +41,11 @@ def login_view(request):
 def admin_dashboard(request):
     if request.user.is_authenticated and request.user.role == 'admin':
         return render(request, 'accounts/admin_dashboard.html')
+    else:
+        return redirect('login')
+    
+def distributor_dashboard(request):
+    if request.user.is_authenticated and request.user.role == 'distributor':
+        return render(request, 'accounts/distributor_dashboard.html')
     else:
         return redirect('login')

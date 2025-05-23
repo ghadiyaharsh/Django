@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+        .registration {
+            border: 2px solid orange;
+            padding: 30px;
+            border-radius: 10px;
+            background: #fffaf3;
+        }
+        .registration input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1.5px solid orange;
+            border-radius: 5px;
+        }
+        .registration button {
+            background-color: orange;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" class="registration">
+        <h2 style="color: orange;">Register</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+<!-- Compare this snippet from UserAuthProject/accounts/templates/accounts/register.html: -->   
+<!-- <!DOCTYPE html>
+ -->
+<!-- <html lang="en">
+    -->
+<!-- <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+        <style>
+            body {
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                font-family: sans-serif;
+            }
+            .registration {
+                border: 2px solid orange;
+                padding: 30px;
+                border-radius: 10px;
+                background: #fffaf3;
+            }
+            .registration input, select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1.5px solid orange;
+                border-radius: 5px;
+            }
+            .registration button {
+                background-color: orange;
+                border: none;
+                padding: 10px;
+                width: 100%;
+                color: white;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" class="registration">
+            <h2 style="color: orange;">Register</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </body>
+</html> -->

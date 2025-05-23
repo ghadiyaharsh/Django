@@ -20,6 +20,8 @@ from accounts import views  # Adjust import to match your project structure
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login_view, name='login'),
+    path('login/', views.login_view, name='login'),
     path('admin/dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('distributor/dashboard/', views.distributor_dashboard, name='distributor_dashboard'),
+    path('', views.register_view, name='register'),
 ]

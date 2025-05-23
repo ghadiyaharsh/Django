@@ -8,10 +8,10 @@ class CustomUser(AbstractUser):
         ('admin', 'Admin'),
         ('distributor', 'Distributor'),
     )
-
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
-    phone = models.CharField(max_length=15, blank=True, null=True)
-    
+    password = models.CharField(max_length=4)  # 4-digit password field
+    name = models.CharField(max_length=255)
+    email = models.EmailField(unique=True)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='distributor')
 def __str__(self):
     return self.name
     
