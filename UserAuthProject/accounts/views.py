@@ -3,9 +3,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, CustomUserForm, ForgotPasswordForm, verifyOTPForm, ResetPasswordForm  # Import all forms including ResetPasswordForm from your forms.py
 from .models import CustomUser  # Import CustomUser from your models.py
-from django.core.mail import send_mail
-from django.conf import settings
-import random
+
 
 
 # Create your views here.
