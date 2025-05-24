@@ -24,4 +24,8 @@ urlpatterns = [
     path('admin/dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('distributor/dashboard/', views.distributor_dashboard, name='distributor_dashboard'),
     path('', views.register_view, name='register'),
+    path('forgot-password/', views.forgot_password_view, name='forgot_password'),
+    path('verify-otp/', views.verify_otp_view, name='verify_otp'),
+    path('reset-password/', views.reset_password_view, name='reset_password'),
+    
 ]
