@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}</title>  
+
+        {% load static %}
+             
+
+</head>
+    <body>
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Welcome to our website! We are dedicated to providing the best service possible.</p>
+            <p>Our team is passionate about what we do and we strive to exceed your expectations.</p>
+        </div>
+        
+        {% for item in team_members %}
+            <div class="team-member">
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.role }}</p>
+            </div>
+        {% endfor %}
+    </body>

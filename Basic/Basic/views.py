@@ -18,7 +18,15 @@ def homepage(request):
     return render(request, "index.html", data)
 
 def about_us(request):
-    return HttpResponse("Welcome to the about us page")
+    data3 = {
+        'team_members': [
+            {'name': 'Alice', 'role': 'Developer'},
+            {'name': 'Bob', 'role': 'Designer'},
+            {'name': 'Charlie', 'role': 'Project Manager'},
+            {'name': 'Diana', 'role': 'Tester'}
+        ],
+    }
+    return render(request, "about-us.html",data3)
 
 def home(request):
     return HttpResponse("Welcome to the home page")
