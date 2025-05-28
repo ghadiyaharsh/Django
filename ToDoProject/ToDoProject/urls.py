@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from todoapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.task_list, name='task_list'),  # URL for the task list view
+    path('add/', views.add_task, name='add_task'),  # URL for adding a new task
 ]
