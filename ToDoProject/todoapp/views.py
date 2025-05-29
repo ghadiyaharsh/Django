@@ -6,7 +6,7 @@ from .models import Task
 
 def task_list(request):
     tasks = Task.objects.all()  # Fetch all tasks from the database
-    return render(request, 'todoapp/index.html', {'tasks': tasks})  # Render the template with tasks
+    return render(request, 'todoapp/task_list.html', {'tasks': tasks})  # Render the template with tasks
 
 def add_task(request):
     if request.method == 'POST':
