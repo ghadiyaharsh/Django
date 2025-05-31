@@ -2,12 +2,71 @@
 <html>
 <head>
     <title>To-Do List</title>
+    <style>
+        body {
+            background: #e6f2ff;
+            color: #222;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #0077cc;
+            margin-top: 40px;
+            text-shadow: 0 4px 16px #b3e0ff;
+        }
+        a {
+            display: inline-block;
+            background: #0077cc;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px #b3e0ff;
+            transition: background 0.2s;
+            
+        }
+        a:hover {
+            background: #005fa3;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        li {
+            background: #fff;
+            margin: 24px 0;
+            padding: 24px 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 #b3e0ff;
+            transition: box-shadow 0.2s;
+        }
+        li:hover {
+            box-shadow: 0 12px 40px 0 #80c1ff;
+        }
+        strong {
+            color: #0077cc;
+            font-size: 1.2em;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e6f2ff;
+            margin: 16px 0 0 0;
+        }
+        p {
+            text-align: center;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
 
     <h1>To-Do List</h1>
 
-    <a href="{% url 'add_task' %}">Add New Task</a><br><br>
 
     <ul>
         {% for task in tasks %}
@@ -25,6 +84,7 @@
             <p>No tasks found.</p>
         {% endfor %}
     </ul>
+    <a href="{% url 'add_task' %}">Add New Task</a><br><br>
 
 </body>
 </html>
