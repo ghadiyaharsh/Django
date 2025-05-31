@@ -1,25 +1,30 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>To-Do List</title>
-        </head>
-    <body>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
 
-<h1>To-Do List</h1>
+    <h1>To-Do List</h1>
 
-    
-<form method="post">
-    {% csrf_token %}
-    <label for="id_title">Title:</label>
-    <input type="text" name="title" id="id_title" required><br><br>
+    <a href="{% url 'add_task' %}">Add New Task</a><br><br>
 
-    <label for="id_description">Description:</label>
-    <textarea name="description" id="id_description"></textarea><br><br>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> <br>
+                {{ task.description }} <br>
+                {% if task.completed %}
+                    ✅ Completed
+                {% else %}
+                    ⏳ Not Completed
+                {% endif %}
+                <hr>
+            </li>
+        {% empty %}
+            <p>No tasks found.</p>
+        {% endfor %}
+    </ul>
 
-    <label for="id_completed">Completed:</label>
-    <input type="checkbox" name="completed" id="id_completed"><br><br>
-
-    <button type="submit">Add Task</button>
-</form>
-
-    </body>
+</body>
 </html>
