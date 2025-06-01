@@ -84,7 +84,9 @@
             <p>No tasks found.</p>
         {% endfor %}
     </ul>
-    <a href="{% url 'add_task' %}">Add New Task</a><br><br>
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <a href="{% url 'add_task' %}">Add New Task</a>
+    </div>
 
 </body>
 </html>
