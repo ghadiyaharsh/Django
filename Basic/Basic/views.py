@@ -51,3 +51,7 @@ def registration(request):
         'title': 'Registration Form',
     }
     return render(request, "registration.html", data1)
+
+
+def navbar(request):
+    return render(request, "navbar.html")

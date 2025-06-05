@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f8fb;
+        }
+        .nav {
+            background: #e3f0ff;
+            box-shadow: 0 4px 16px 0 rgba(0, 123, 255, 0.15);
+            padding: 0;
+        }
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+        }
+        .nav li {
+            margin: 0 18px;
+        }
+        .nav li a {
+            display: block;
+            color: #1565c0;
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+            padding: 12px 22px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 
+                background 0.3s cubic-bezier(.4,0,.2,1),
+                color 0.3s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.3s cubic-bezier(.4,0,.2,1),
+                transform 0.2s cubic-bezier(.4,0,.2,1);
+        }
+        .nav li a:hover {
+            background: linear-gradient(90deg, #90caf9 0%, #e3f2fd 100%);
+            color: #0d47a1;
+            box-shadow: 0 2px 8px 0 rgba(33, 150, 243, 0.15);
+            transform: translateY(-2px) scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about-us' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+</body>
+</html>
