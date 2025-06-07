@@ -53,5 +53,5 @@ def registration(request):
     return render(request, "registration.html", data1)
 
 
-def navbar(request):
-    return render(request, "navbar.html")
+def base(request):
+    return render(request, "base.html")

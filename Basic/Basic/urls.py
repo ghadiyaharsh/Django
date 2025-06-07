@@ -29,7 +29,7 @@ urlpatterns = [
     path('skill/', views.skills, name='skills'),
     path('student/', views.student, name='student'),
     path('registration/', views.registration, name='registration'),
-    path('navbar/', views.navbar, name='navbar'),  # this is the URL pattern for the navbar
+    path('base/',views.base, name='base'),  # this is the URL pattern for the base template
 ]
 # about-us is a link and views.aboutUS is the function that will be called when the user visits that link
 # this is the URL pattern for the about us page
