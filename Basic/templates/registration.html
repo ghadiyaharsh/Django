@@ -5,62 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title1 }}</title>
-    <style>
-        body {
-            background: #fff;
-            min-height: 100vh;
-            margin: 0;
-            display: flex;   /* it is used for flex display */
-            align-items: center; /* it is used for vertical alignment */
-            justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .registration {
-            border: 3px solid orange;
-            border-radius: 12px;
-            padding: 32px 40px;
-            background: #fff;
-            color: orange;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 24px rgba(255,140,0,0.10);
-            display: flex;
-            flex-direction: column;
-            min-width: 340px;
-        }
-        .registration label {
-            color: black;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .registration input[type="text"],
-        .registration input[type="email"],
-        .registration input[type="password"],
-        .registration input[type="tel"],
-        .registration imput[type='submit']{
-            border: 1.5px solid orange;
-            border-radius: 6px;
-            padding: 8px 12px;
-            margin-bottom: 16px;
-            font-size: 1rem;
-            color:rgb(183, 89, 22);
-            background:rgb(250, 245, 239);
-            outline: none;
-            transition: border 0.2s;
-        }
-        .registration input:focus {
-            border-color: #ff9800;
-            background: #fff3e0;
-        }
-        h1 {
-            text-align: center;
-            color: orange;
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-            text-shadow: 1px 1px 2px #ffd580;
-        }
-    </style>
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'registration.css/' %}">
 </head>
 <body>
     <div>
