@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+import random
+from django.core.mail import send_mail
+from django.conf import settings
 from .forms import LoginForm, CustomUserForm, ForgotPasswordForm, verifyOTPForm, ResetPasswordForm  # Import all forms including ResetPasswordForm from your forms.py
 from .models import CustomUser  # Import CustomUser from your models.py
 
@@ -62,18 +65,19 @@ def forgot_password_view(request):
             email = form.cleaned_data['email']
             user = CustomUser.objects.filter(email=email).first()
             if user:
-                otp = random.randint(100000, 999999)
+                otp = str(random.randint(100000, 999999))
                 request.session['reset_email'] = email
-                request.session['otp'] = str(otp)
-                
+                request.session['otp'] = otp
+
                 # Send OTP via email
                 send_mail(
                     'Your OTP Code',
                     f'Your OTP is: {otp}',
                     settings.EMAIL_HOST_USER,
                     [email],
+                    fail_silently=False,
                 )
-                
+
                 return redirect('verify_otp')
             else:
                 form.add_error('email', 'Email not found')
