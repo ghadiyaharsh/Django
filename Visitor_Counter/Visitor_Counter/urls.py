@@ -19,5 +19,6 @@ from django.urls import path
 from Visitor_Counter import views 
 
 urlpatterns = [
-    path('visitor/', views.visitor ,name='visitor')
+    path('admin/', admin.site.urls),
+    path('', views.visitor ,name='visitor'),
 ]
