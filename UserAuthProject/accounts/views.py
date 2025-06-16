@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import LoginForm, CustomUserForm, ForgotPasswordForm, verifyOTPForm, ResetPasswordForm  # Import all forms including ResetPasswordForm from your forms.py
 from .models import CustomUser  # Import CustomUser from your models.py
+import traceback
 
 
 
@@ -57,8 +58,9 @@ def distributor_dashboard(request):
         return redirect('login')
     
 
-
 def forgot_password_view(request):
+    print("Generating OTP and sending email...")
+    
     if request.method == 'POST':
         form = ForgotPasswordForm(request.POST)
         if form.is_valid():
@@ -69,22 +71,28 @@ def forgot_password_view(request):
                 request.session['reset_email'] = email
                 request.session['otp'] = otp
 
-                # Send OTP via email
-                send_mail(
-                    'Your OTP Code',
-                    f'Your OTP is: {otp}',
-                    settings.EMAIL_HOST_USER,
-                    [email],
-                    fail_silently=False,
-                )
+                # ✅ Wrap email send in try-except
+                try:
+                    send_mail(
+                        'Your OTP Code',
+                        f'Your OTP is: {otp}',
+                        settings.EMAIL_HOST_USER,
+                        [email],
+                        fail_silently=False,
+                    )
+                    print("✅ OTP sent successfully to", email)
+
+                except Exception as e:
+                    print("❌ Failed to send email. Error:")
+                    traceback.print_exc()  # Print full error
 
                 return redirect('verify_otp')
             else:
                 form.add_error('email', 'Email not found')
     else:
         form = ForgotPasswordForm()
+    
     return render(request, 'accounts/forgot_password.html', {'form': form})
-   
    
 def verify_otp_view(request):
     if request.method == 'POST':
