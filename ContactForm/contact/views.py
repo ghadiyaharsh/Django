@@ -16,7 +16,7 @@ def contact_view(request):
                 f'Contact Form Submission from {name}',
                 message,
                 email,  # from email
-                ['harshghadiya212@gmail.com'],  # to email (admin)
+                [''],  # to email (admin)
             )
             return render(request, 'success.html')
     else:
