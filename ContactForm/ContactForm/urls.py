@@ -22,4 +22,5 @@ from contact import views   # Import the contact app views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.contact_view, name='contact'),  # URL for the contact form
+    path('success/', views.success_view, name='success'),  # URL for the success page
 ]
