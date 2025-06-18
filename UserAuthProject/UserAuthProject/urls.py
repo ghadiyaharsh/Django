@@ -21,8 +21,8 @@ from accounts import views  # Adjust import to match your project structure
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login_view, name='login'),
-    path('admin/dashboard/', views.admin_dashboard, name='admin_dashboard'),
-    path('distributor/dashboard/', views.distributor_dashboard, name='distributor_dashboard'),
+    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('distributor_dashboard/', views.distributor_dashboard, name='distributor_dashboard'),
     path('', views.register_view, name='register'),
     path('forgot_password/', views.forgot_password_view, name='forgot_password'),
     path('verify_otp/', views.verify_otp_view, name='verify_otp'),
