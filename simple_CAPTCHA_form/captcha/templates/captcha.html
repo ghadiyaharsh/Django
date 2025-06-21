@@ -1,9 +1,62 @@
 <html>
     <head>
-        <title>CAPTHCA</title>
+        <title>CAPTCHA</title>
+        <style>
+            body {
+            background: #f4f6fb;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            }
+            h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #2a4365;
+            font-weight: 600;
+            }
+            form {
+            background: #fff;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 32px 28px 24px 28px;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+            }
+            label {
+            font-weight: 500;
+            color: #2a4365;
+            }
+            input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 8px 0 18px 0;
+            border: 1px solid #bfc9d9;
+            border-radius: 4px;
+            background: #f8fafc;
+            font-size: 1rem;
+            transition: border 0.2s;
+            }
+            
+            button[type="submit"] {
+            width: 100%;
+            background: #3182ce;
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            }
+            button[type="submit"]:hover {
+            background: #265a99;
+            }
+        </style>
     </head>
     <body>
-        <h1>captcha form</h1>
+        <h1>Captcha Form</h1>
         <form method="post">
              {% csrf_token %}
              {{ form.as_p }}
